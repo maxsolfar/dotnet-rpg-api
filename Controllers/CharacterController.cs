@@ -23,10 +23,10 @@ namespace doNetRPG.Controllers
         }
 
         [HttpGet]
-        [Route("GetSingle")]
-        public ActionResult<Character> GetSingle()
+        [Route("{id}")]
+        public ActionResult<Character> GetSingle(int id)
         {
-            return Ok(characters[0]);
+            return Ok(characters.FirstOrDefault(character => character.Id == id));
         }
     }
 }
