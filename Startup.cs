@@ -32,6 +32,7 @@ namespace doNetRPG
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "doNetRPG", Version = "v1" });
             });
+            services.AddScoped<ICharacterService, CharacterService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

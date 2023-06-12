@@ -10,23 +10,31 @@ namespace doNetRPG.Controllers
     [Route("api/[controller]")]
     public class CharacterController : ControllerBase
     {
-        private static List<Character> characters = new List<Character>{
-            new Character(),
-            new Character{Id = 1, Name = "Sam"}
-        };
+        private readonly ICharacterService _characterService;
+
+        public CharacterController(ICharacterService characterService)
+            {
+            _characterService = characterService;
+        }
 
         [HttpGet]
         [Route("GetAll")]
         public ActionResult<Character> Get()
         {
-            return Ok(characters);
+            return Ok(_characterService.GetAllCharacters());
         }
 
         [HttpGet]
         [Route("{id}")]
         public ActionResult<Character> GetSingle(int id)
         {
-            return Ok(characters.FirstOrDefault(character => character.Id == id));
+            return Ok(_characterService.GetCharacterById(id));
+        }
+
+        [HttpPost]
+        public ActionResult<List<Character>> AddCharacter(Character newCharacter)
+        {
+            return Ok(_characterService.AddCharacter(newCharacter));
         }
     }
 }
