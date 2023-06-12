@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace doNetRPG.Model
+namespace doNetRPG.Models
 {
     public class Character
     {

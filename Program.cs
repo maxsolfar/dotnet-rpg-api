@@ -1,4 +1,4 @@
-global using doNetRPG.Model;
+global using doNetRPG.Models;
 global using doNetRPG.Services.CharacterService;
 using System;
 using System.Collections.Generic;
